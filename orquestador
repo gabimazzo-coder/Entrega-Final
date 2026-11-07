@@ -1,0 +1,31 @@
+import os
+from src.ingesta import extraer_dataset_vinos
+from src.processing import ejecutar_pipeline_procesamiento
+from src.database import guardar_en_sqlite
+from src.train import cargar_datos_desde_db, entrenar_modelo
+
+def main():
+    print("=== Iniciando Pipeline de Ciencia de Datos ===")
+
+    # 1. Ingesta
+    print("\n[1/4] Extrayendo datos...")
+    df_crudo = extraer_dataset_vinos()
+
+    # 2. Procesamiento (Polars + DuckDB)
+    print("\n[2/4] Normalizando con Polars y DuckDB...")
+    df_procesado = ejecutar_pipeline_procesamiento(df_crudo)
+
+    # 3. Persistencia (SQLAlchemy 2.0 en SQLite)
+    db_uri = os.getenv("DB_URI", "sqlite:///vinos.db")
+    print(f"\n[3/4] Guardando datos en {db_uri}...")
+    guardar_en_sqlite(df_procesado, db_uri)
+
+    # 4. Machine Learning (Scikit-Learn + GridSearchCV)
+    print("\n[4/4] Cargando datos y entrenando modelo...")
+    df_db = cargar_datos_desde_db(db_uri)
+    entrenar_modelo(df_db)
+
+    print("\n=== Pipeline completado con éxito ===")
+
+if __name__ == "__main__":
+    main()
