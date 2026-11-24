@@ -1,5 +1,5 @@
 # Entrega-Final
-# 🍷 Wine Classification & ML Pipeline
+# 🍷 Clasificación de vino y Pipeline de ML(Wine Classification & ML Pipeline)
 
 ## 1. Descripción del Proyecto
 Este proyecto implementa un pipeline integral de datos y Machine Learning para la clasificación y análisis de perfiles de vinos a partir de descripciones sensoriales. 
