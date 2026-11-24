@@ -44,8 +44,8 @@ Este proyecto implementa un pipeline de datos integral de extremo a extremo:
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone <URL_DE_TU_REPOSITORIO>
-   cd <NOMBRE_DEL_REPOSITORIO>
+   git clone <https://github.com/gabimazzo-coder/Entrega-Final.git>
+   cd <Entrega-Final>
    ```
 
 2. **Crear y activar un entorno virtual (Python 3.12):**
@@ -53,9 +53,7 @@ Este proyecto implementa un pipeline de datos integral de extremo a extremo:
    python -m venv venv
    # En Windows:
    venv\Scripts\activate
-   # En Linux/Mac:
-   source venv/bin/activate
-   ```
+
 
 3. **Instalar dependencias:**
    ```bash
@@ -63,7 +61,7 @@ Este proyecto implementa un pipeline de datos integral de extremo a extremo:
    ```
 
 4. **Variables de entorno:**
-   Copia el archivo de ejemplo y configura tus credenciales si aplica:
+
    ```bash
    cp config/.env.example .env
    ```
@@ -84,7 +82,6 @@ python src/database.py
 # 3. Entrenamiento y evaluación del modelo de ML
 python src/train.py
 ```
-*(O `python main.py` si unificaste el flujo en un orquestador).*
 
 ---
 
@@ -93,7 +90,7 @@ python src/train.py
 - **Objetivo:** Clasificación binaria (`es_buena_calidad` >= 7).
 - **Algoritmo:** Random Forest Classifier optimizado con validación cruzada (5 folds).
 - **Métricas obtenidas en conjunto de test:**
-  - **F1-Score (macro/ponderado):** *[Completar con tu valor, ej: 0.82]*
-  - **ROC-AUC:** *[Completar con tu valor, ej: 0.89]*
-  - **Accuracy:** *[Completar con tu valor, ej: 0.85]*
+  - **F1-Score (macro/ponderado):** *[0.94]*
+  - **ROC-AUC:** *[0,9279]*
+  - **Accuracy:** *[0,89]*
 
